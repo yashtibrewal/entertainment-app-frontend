@@ -12,12 +12,12 @@ function Logout() {
   useEffect(() => {
     const logoutUser = async () => {
       const result = await logoutUserApi();
-      if (result.isSuccess) {
-        logout();
-        navigate("/login");
-      } else {
+      if (!result.isSuccess) {
        console.error(result);
-      }
+      }  
+      logout();
+      navigate("/login");
+      
     };
 
     logoutUser();

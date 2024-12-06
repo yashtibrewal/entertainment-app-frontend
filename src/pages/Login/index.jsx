@@ -19,18 +19,23 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const { login } = useAuth();
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
 
   const loginUser = async () => {
+    setLoading(true);
     const result = await loginUserApi(email, password);
-
     if (result.isSuccess) {
       login(result);
       navigate("/");
+      setLoading(false);
     } else {
-    //  console.log(result);
+     console.error(result);
     }
+    setLoading(false);
 
   }
+
+  if(loading) return <>Logging in.</>
 
   return (
     <div
