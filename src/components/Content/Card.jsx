@@ -64,24 +64,20 @@ const Card = ({ id, name, bookmark, poster_path, title, release_date, first_air_
         <ul className="flex content-sec gap-x-3 mt-2">
         <li className="flex flex-col items-center text-white text-xs">
         <span className="mr-1">
-            { media_type === MEDIA_TYPE.MOVIES ? (
-              release_date?.slice(0,4)
-            ) : (
-              first_air_date?.slice(0,4)
-            ) }
+            { release_date?release_date.slice(0,4):first_air_date.slice(0,4)}
         </span>
         </li>
         
         <li className="flex items-center">
           <RiFilmFill className="mr-1 text-white" />
-          <span>{media_type?.toUpperCase()}</span>
+          <span>{media_type}</span>
         </li>
         <li className="flex items-center text-xs">
           <span>{adult ? "PG" : "UG"}</span>
         </li>
       </ul>
       <h3 className="mt-2 line-clamp-1 text-lg tracking-tight">
-        {media_type === MEDIA_TYPE.MOVIES ? title : name}</h3>
+        {title?title:name}</h3>
     </div>
   </div>
   );

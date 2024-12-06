@@ -5,7 +5,7 @@ import { RiFilmFill } from "react-icons/ri";
 import { toggleMovieBookmark } from "../Recommended/api";
 import { BASE_IMAGE_URL } from "../../constants";
 
-const TrendingCard = ({ id, bookmark, poster_path, title, release_date, adult, media_type }) => {
+const TrendingCard = ({ id, bookmark,first_air_date, poster_path, title,name,release_date, adult, media_type }) => {
   const [bookmarked, setBookmarked] = useState(false);
 
   const handleBookMarkClick = (event) => {
@@ -40,17 +40,17 @@ const TrendingCard = ({ id, bookmark, poster_path, title, release_date, adult, m
         <div className="bottom-2 left-2 absolute bg-transparent px-2 py-1 rounded text-black text-sm">
           <ul className="flex gap-4 px-2">
             <li className="flex items-center font-semibold text-white">
-              <span className="mr-1">{release_date.slice(0, 4)}</span>
+              <span className="mr-1">{}</span>
             </li>
             <li className="flex items-center font-semibold text-white">
               <RiFilmFill className="mr-1 text-white" />
               <span>{media_type.toUpperCase()}</span>
             </li>
             <li className="flex items-center font-semibold text-white">
-              <span>{adult ? "PG" : "UG"}</span>
+              <span>{}</span>
             </li>
           </ul>
-          <h3 className="mt-1 font-semibold text-lg text-white">{title}</h3>
+          <h3 className="mt-1 font-semibold text-lg text-white">{}</h3>
         </div>
       </div>
     </div>
