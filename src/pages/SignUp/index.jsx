@@ -1,48 +1,57 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import MovieCreationIcon from '@mui/icons-material/MovieCreation';
 import registerUser from './api';
 import { useNavigate } from 'react-router-dom';
+import { useToast } from '../../components/ToastContext'; 
 
 const SignUp = () => {
-
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
   const navigate = useNavigate();
+  const { addToast } = useToast(); 
 
   const signup = async (event) => {
     event.preventDefault();
-    const result = await registerUser(name, email, password);
-
-    if (result.isSuccess) {
-      navigate("/login");
-    } else {
-      // TODO: Toast the message
-    //  console.log(result.message);
+    
+    // Check if passwords match
+    if (password !== repeatPassword) {
+      addToast('Passwords do not match', 'error'); 
+      return;
     }
-  }
+
+    try {
+      const result = await registerUser(name, email, password);
+
+      if (result.isSuccess) {
+        addToast('Account created successfully!', 'success'); 
+        navigate('/login');
+      } else {
+        addToast(result.message || 'Sign up failed. Please try again.', 'error');
+      }
+    } catch (error) {
+      console.error(error);
+      addToast('An unexpected error occurred. Please try again.', 'error'); 
+    }
+  };
 
   return (
-    <div
-      className="flex flex-col justify-center items-center bg-gray-900 w-screen h-screen text-white"
-    >
+    <div className="flex flex-col justify-center items-center bg-gray-900 w-screen h-screen text-white">
       {/* Icon Section */}
       <div className="mb-6">
-        <MovieCreationIcon
-          style={{ color: '#ff5252', height: '70px', width: '70px' }}
-        />
+        <MovieCreationIcon style={{ color: '#ff5252', height: '70px', width: '70px' }} />
       </div>
 
       {/* Form Container */}
       <div className="bg-gray-800 shadow-lg p-6 rounded-xl w-80">
-        <h1 className="mb-6 font-semibold text-2xl">SignUp</h1>
+        <h1 className="mb-6 font-semibold text-2xl">Sign Up</h1>
 
         {/* Form */}
         <div className="flex flex-col gap-2 w-full">
           <div className="relative">
             <input
-              type="name"
+              type="text"
               name="name"
               value={name}
               onChange={(event) => setName(event.target.value)}
@@ -88,15 +97,17 @@ const SignUp = () => {
             Create an account
           </button>
         </div>
+
         {/* Additional Links */}
         <p className="mt-4 text-center text-gray-400 text-sm">
           Already have an account?{' '}
-          <a href="/login" className="text-red-500 hover:underline cursor-pointer">Login</a>
+          <a href="/login" className="text-red-500 hover:underline cursor-pointer">
+            Login
+          </a>
         </p>
       </div>
     </div>
-  )
+  );
 };
 
-export default SignUp
-
+export default SignUp;

@@ -6,13 +6,16 @@ import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import Store from './store/Store'
+import { ToastProvider } from './components/ToastContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Provider store={Store}>
       <BrowserRouter future={{ v7_startTransition: true }}>
+      <ToastProvider>
         <App />
+        </ToastProvider>
       </BrowserRouter>
     </Provider>
   </React.StrictMode>
