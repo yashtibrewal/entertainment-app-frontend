@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 import { FaBookmark, FaRegBookmark } from "react-icons/fa";
 import { toggleMovieBookmark, toggleTVSeriesBookmark } from "../Content/api";
@@ -13,6 +14,7 @@ export function Bookmark({bookmark, media_type, id}) {
     const [isBookmarked, setIsBookmarked] = useState(bookmark || false);
 
     const bookmarkContent = (event) => {
+
         console.log('clicked bookmark');
         event.stopPropagation();
         if (media_type === MEDIA_TYPE.MOVIES) {
