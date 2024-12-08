@@ -11,8 +11,7 @@ const List = ({ cards }) => {
   return (
     <>
       {filteredCards.map((card) => (
-        // TODO: add this in best practice
-        <Card key={uuidv4} {...card} />
+        <Card key={uuidv4()} {...card} />
       ))}
     </>
   );
