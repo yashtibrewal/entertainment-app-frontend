@@ -77,7 +77,7 @@ const Trending = ({ trendingMovies }) => {
 
         style={{
           transform: `translateX(-${currentIndex * cardWidth}px)`,
-          width: `${trendingMovies.length * cardWidth}px`,
+          width: `${trendingMovies.length * cardWidth}px`,cursor:"grab"
         }}
       >
 

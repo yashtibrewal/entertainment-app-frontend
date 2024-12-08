@@ -3,11 +3,16 @@ import { FaBookmark } from "react-icons/fa";
 import { RiFilmFill } from "react-icons/ri";
 import { BASE_IMAGE_URL } from "../../constants";
 
-// This card is the wider card used compared to other cards. These cards are placed first.
+
+
+
 const TrendingCard = ({ poster_path, name, title,first_air_date  ,release_date, adult,media_type}) => {
 console.log(media_type);
+
   return (
-    <div className="bg-black shadow-lg rounded-lg w-96 text-white overflow-hidden trending-cart">
+
+    <div className="bg-black shadow-lg rounded-lg w-96 text-white overflow-hidden trending-cart ">
+
       <div className="relative">
         <img src={`${BASE_IMAGE_URL}${poster_path}`} alt={title} className="w-full h-48 object-cover" />
         {/* TODO: Implement bookmark */}
@@ -30,8 +35,11 @@ console.log(media_type);
           <h3 className="mt-1 font-semibold text-lg text-white">{title?title:name}</h3>
         </div>
       </div>
+     
     </div>
+    
   );
+   
 };
 
 export default TrendingCard;
