@@ -11,10 +11,11 @@ const TrendingCard = ({ id, poster_path, bookmark, name, title,first_air_date  ,
   return (
     <div className="bg-black shadow-lg rounded-lg w-96 text-white overflow-hidden trending-cart">
       <div className="relative">
-        <img src={`${BASE_IMAGE_URL}${poster_path}`} alt={title} className="w-full h-48 object-cover" />
+        <img src={`${BASE_IMAGE_URL}${poster_path}`} alt={title} className="w-full h-48 object-cover " />
         <Bookmark
           className={styles.bookmark}
           id={id} bookmark={bookmark} media_type={media_type} key={uuidv4()}></Bookmark>
+          <div className="absolute inset-0 bg-black bg-opacity-60"></div>
         <div className="bottom-2 left-2 absolute bg-transparent px-2 py-1 rounded text-black text-sm">
           <ul className="flex gap-4 px-2 pl-0">
             <li className="flex items-center font-semibold text-white">
