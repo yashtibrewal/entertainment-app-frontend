@@ -43,7 +43,7 @@ const formattedDate = date ? date.slice(0, 4) : "Unknown"; //fixed here becuase 
         <ul className="flex content-sec gap-x-3 mt-2">
         <li className="flex flex-col items-center text-white text-xs">
         <span className="mr-1">
-            { release_date?release_date.slice(0,4):first_air_date.slice(0,4)}
+            { formattedDate}
         </span>
         </li>
         
