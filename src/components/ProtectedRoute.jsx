@@ -14,7 +14,7 @@ const ProtectedRoute = () => {
       else {
         navigate("/");
       }
-  })
+  }, [navigate])
 
   return state.isLoggedIn ? <Outlet></Outlet> : navigate("/login");
 };
