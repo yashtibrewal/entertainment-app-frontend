@@ -2,7 +2,7 @@ import { FaSearch } from "react-icons/fa";
 import "../App.css";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useLocation } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 import {
   clearSearchResults,
   searchMovies,
@@ -31,6 +31,7 @@ export default function Search() {
     const handler = setTimeout(() => {
       if (input.trim()) {
         dispatch(searchMovies(input));
+       
         dispatch(searchTVSeries(input));
       } else {
         const path = location.pathname;
@@ -57,6 +58,14 @@ export default function Search() {
     };
   }, [input, dispatch, location.pathname]);
 
+ 
+
+// re-rendering component when route changes
+  useEffect(() => {
+    setInput("");   /// resetting input field
+    dispatch(clearSearchResults());
+  }, [location.pathname]);
+
   return (
     <>
       <div className="flex gap-2 justify-center mt-4 ml-4 sm:justify-start sm:ml-8">
@@ -79,7 +88,6 @@ export default function Search() {
       {/* Rendering the results */}
       {
         <div className="flex gap-4">
-        
           <List cards={result} />
         </div>
       }
