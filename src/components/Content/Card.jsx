@@ -21,6 +21,9 @@ const Card = ({ id, name, bookmark, poster_path, title, release_date, first_air_
     }
   }
 
+  const date = release_date || first_air_date;
+const formattedDate = date ? date.slice(0, 4) : "Unknown"; //fixed here becuase it gives undefine when trying to use via search
+
   return (
     <div
       onClick={handleNavigation}
@@ -40,7 +43,7 @@ const Card = ({ id, name, bookmark, poster_path, title, release_date, first_air_
         <ul className="flex content-sec gap-x-3 mt-2">
         <li className="flex flex-col items-center text-white text-xs">
         <span className="mr-1">
-            { release_date?release_date.slice(0,4):first_air_date.slice(0,4)}
+            { formattedDate}
         </span>
         </li>
         
