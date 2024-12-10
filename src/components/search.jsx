@@ -87,7 +87,7 @@ export default function Search() {
       </div>
       {/* Rendering the results */}
       {
-        <div className="flex gap-4">
+        <div className="flex flex-wrap gap-4">
           <List cards={result} />
         </div>
       }

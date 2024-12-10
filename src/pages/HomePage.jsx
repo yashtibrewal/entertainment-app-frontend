@@ -161,6 +161,7 @@ export default function HomePage() {
 
  
   if (searchedMovies.length) return renderSearchedMovies();
+  console.log("searchedMovies.length :",searchedMovies.length);
 
   return (
     <div className="">

@@ -113,7 +113,7 @@ const SignUp = () => {
               required
               onChange={(event) => setName(event.target.value)}
               placeholder="Name"
-              onFocus={handleFocus}
+             
               className="border-gray-600 bg-transparent px-1 py-2 focus:border-red-500 border-b-2 w-full text-sm focus:outline-none"
             />
             {nameError && <p className="text-red-500 text-xs mt-1">{nameError}</p>}
@@ -126,7 +126,7 @@ const SignUp = () => {
               value={email}
               onChange={(event) => setEmail(event.target.value)}
               placeholder="Email"
-              onFocus={handleFocus}
+           
               className="border-gray-600 bg-transparent px-1 py-2 focus:border-red-500 border-b-2 w-full text-sm focus:outline-none"
             />
             {emailError && <p className="text-red-500 text-xs mt-1">{emailError}</p>}
@@ -140,7 +140,7 @@ const SignUp = () => {
               required
               onChange={(event) => setPassword(event.target.value)}
               placeholder="Password"
-              onFocus={handleFocus}
+             
               className="border-gray-600 bg-transparent px-1 py-2 focus:border-red-500 border-b-2 w-full text-sm focus:outline-none"
             />
             {passwordError && <p className="text-red-500 text-xs mt-1">{passwordError}</p>}
@@ -154,7 +154,7 @@ const SignUp = () => {
               required
               onChange={(event) => setRepeatPassword(event.target.value)}
               placeholder="Repeat password"
-              onFocus={handleFocus}
+             
               className="border-gray-600 bg-transparent px-1 py-2 focus:border-red-500 border-b-2 w-full text-sm focus:outline-none"
             />
             {cnfPasswordError && <p className="text-red-500 text-xs mt-1">{cnfPasswordError}</p>}
